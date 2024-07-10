@@ -12,7 +12,7 @@ function App() {
 
     return (
         <>
-            <BrowserRouter>
+            <BrowserRouter basename={"/integration-backoffice"}>
                 <AuthProvider>
                     <Routes>
                         <Route
