@@ -5,7 +5,7 @@ export interface CardProps extends React.PropsWithChildren{
     actions?: React.ReactNode
 }
 
-export const Card: React.FC<CardProps> = ({children,header,actions}) => {
+export const Card: React.FC<CardProps> = ({children,header}) => {
     return (
         <div className="bg-white shadow shadow-[#1e3a8a]">
             {header}
