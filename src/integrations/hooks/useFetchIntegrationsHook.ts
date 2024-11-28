@@ -4,11 +4,12 @@ import useAuth from "../../auth/context/AuthContext.tsx";
 
 export async function fetchIntegrations(token: string): Promise<Page<any>> {
 
+    // return fetch(`https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations`, {
     return fetch(`/integrations`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",
-            "Authorization": token
+            "Authorization": `${token}`
         },
     })
         .then(async (res) => {

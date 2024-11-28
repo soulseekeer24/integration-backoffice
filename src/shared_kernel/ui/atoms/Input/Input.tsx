@@ -12,15 +12,10 @@ export function useField<T>(initValue: T, onValueUpdate?: (value: T) => void) {
         }
     }
 
-    const clear = () => {
-        setValue(initValue);
-    }
 
     return {
         value,
-        onChange,
-        setValue,
-        clear,
+        onChange
     }
 }
 

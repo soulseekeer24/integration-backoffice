@@ -6,13 +6,14 @@ import Dashboard from './DashboardPage.tsx';
 import LoginPage from './auth/pages/LoginPage.tsx';
 import Vertical3Page from "./integrations/pages/Vertical3Page.tsx";
 import ListingIntegrationPage from "./integrations/pages/ListingIntegrationPage.tsx";
-import CreateOrEditIntegrationPage from './integrations/pages/CreateOrEditIntegrationPage.tsx';
+import CreateIIntegrationPage from './integrations/pages/CreateIIntegrationPage.tsx';
+import EditIntegrationPage from "./integrations/pages/EditIntegrationPage.tsx";
 
 function App() {
 
     return (
         <>
-            <BrowserRouter basename={"/integration-backoffice"}>
+            <BrowserRouter>
                 <AuthProvider>
                     <Routes>
                         <Route
@@ -31,11 +32,11 @@ function App() {
                                     element={<ListingIntegrationPage/>}/>
                                 <Route
                                     path="/manpower-v3/form"
-                                    element={<CreateOrEditIntegrationPage/>}
+                                    element={<CreateIIntegrationPage/>}
                                 />
                                 <Route
                                     path="/manpower-v3/form/:id"
-                                    element={<CreateOrEditIntegrationPage/>}
+                                    element={<EditIntegrationPage/>}
                                 />
                             </Route>
                         </Route>

@@ -12,7 +12,6 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({children, heade
     return (
         <>
             <header>
-
                 {header}
             </header>
             <div className="flex h-full">
@@ -21,7 +20,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({children, heade
                         {sidebar}
                     </div> : null}
 
-                <div className="flex w-full justify-center ">
+                <div className="flex w-full justify-center">
                     {children}
                 </div>
             </div>

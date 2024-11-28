@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
         <div className="sidebar py-4 px-2 bg-blue-900 text-white">
             <ul>
                 <li className="mb-2">
-                    <Link to="/manpower-v3" className="text-blue-200 hover:text-white">
+                    <Link to="/manpower-v3/listing" className="text-blue-200 hover:text-white">
                         Vertical 3 Manpower
                     </Link>
                 </li>
