@@ -33,7 +33,7 @@ const IntegrationsTable = (): ReactElement => {
                     onRowClick={handleOnRowClick}
                     data={integrations}
                     columns={[
-                        {property: "id", header: "ID"},
+                        {property: "config.execution_parameters.companyName", header: "Empresa"},
                         {property: "config.execution_parameters.noCia", header: "ID Empresa manpower"},
                         {property: "config.company_id", header: "ID hcwork"},
                         {property: "status", header: "Status"}

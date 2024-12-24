@@ -4,7 +4,7 @@ import useAuth from "../../auth/context/AuthContext.tsx";
 export async function fetchIntegrations(token: string, integrationId: string): Promise<any> {
 
     // return fetch(`https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations/${integrationId}`, {
-    return fetch(`/integrations/${integrationId}`, {
+    return fetch(`https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations/${integrationId}`, {
         method: 'GET',
         headers: {
             "Content-Type": "application/json",

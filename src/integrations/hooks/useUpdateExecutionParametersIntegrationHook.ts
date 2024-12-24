@@ -3,7 +3,7 @@ import {Page} from "../../shared_kernel/models/Page.ts";
 import useAuth from "../../auth/context/AuthContext.tsx";
 
 export async function update(token: string, integrationId: string, executionParameters: any): Promise<Page<any>> {
-
+    // `https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations/${integrationId}/execution-parameters
     return fetch(`https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations/${integrationId}/execution-parameters`, {
         method: 'PATCH',
         body: JSON.stringify(executionParameters),
