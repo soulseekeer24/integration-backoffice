@@ -1,11 +1,11 @@
 import {useState} from "react";
 import useAuth from "../../auth/context/AuthContext.tsx";
 
-export async function fetchIntegrations(token: string, integrationId: string): Promise<any> {
+export async function _inactivateIntegration(token: string, integrationId: string): Promise<any> {
 
     // return fetch(`https://u0iwmgjmx0.execute-api.us-east-1.amazonaws.com/Prod/integrations/${integrationId}`, {
-    return fetch(`/integrations/${integrationId}`, {
-        method: 'GET',
+    return fetch(`/integrations/${integrationId}}/toggle-inactive`, {
+        method: 'PATCH',
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
@@ -18,20 +18,20 @@ export async function fetchIntegrations(token: string, integrationId: string): P
 
 }
 
-export function useFetchIntegrationById() {
+export function useInactivateIntegrationHook() {
     const [itsLoading, setItsLoading] = useState<boolean>(true)
     const [data, setData] = useState<any>(null)
     const {user} = useAuth()
 
-    const execute = async (integrationId: string) => {
-        return fetchIntegrations(user.authToken.jwtToken, integrationId)
+    const inactivateIntegration = async (integrationId: string) => {
+        return _inactivateIntegration(user.authToken.jwtToken, integrationId)
             .then((res: any) => setData(res))
             .catch(console.log)
             .finally(() => setItsLoading(false));
     };
 
     return {
-        execute,
+        inactivateIntegration,
         itsLoading,
         integration: data,
     };

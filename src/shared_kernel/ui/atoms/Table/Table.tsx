@@ -11,14 +11,15 @@ export interface TableProps {
     data: any[]
 
     //actions
-    onRowClick?: (item: any) => void
+    onRowClick?: (e: React.MouseEvent<HTMLTableRowElement>, item: any) => void
+    onContextMenu?: (e: React.MouseEvent<HTMLTableRowElement>, item: any) => void
 }
 
 const getObjectPropertyValue = (path: string, obj: any, separator = '.') => {
     let properties = Array.isArray(path) ? [path] : path.split(separator)
     return properties.reduce((prev: any, curr: any) => prev?.[curr], obj)
 }
-export const Table: React.FC<TableProps> = ({columns, data, onRowClick}) => {
+export const Table: React.FC<TableProps> = ({columns, data, onRowClick, onContextMenu}) => {
     return (
         <table className="table-fixed  w-full  border border-slate-500 p-2">
             <thead>
@@ -27,7 +28,8 @@ export const Table: React.FC<TableProps> = ({columns, data, onRowClick}) => {
             </tr>
             </thead>
             <tbody className="divide-y divide-blue-200">
-            {data.map(d => <tr onClick={() => onRowClick ? onRowClick(d) : null}
+            {data.map(d => <tr onClick={(e) => onRowClick ? onRowClick(e, d) : null}
+                               onContextMenu={(e) => onContextMenu ? onContextMenu(e, d) : null}
                                className="cursor-pointer hover:bg-purple-100">
                 {columns.map(c => <td key={c.property}
                                       className="py-3 px-4 overflow-hidden">{getObjectPropertyValue(c.property, d)}</td>)}</tr>)}
