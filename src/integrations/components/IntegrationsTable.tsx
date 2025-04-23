@@ -1,9 +1,17 @@
 import {ReactElement, useEffect} from "react";
 import {Table} from "../../shared_kernel/ui/atoms";
 import {useFetchIntegration} from "../hooks/useFetchIntegrationsHook.ts";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 
-const IntegrationsTable = (): ReactElement => {
+
+
+
+interface IntegrationsTableProps {
+    processorCode?: string
+}
+
+const IntegrationsTable = ({processorCode}: IntegrationsTableProps): ReactElement => {
+    const {title} = useParams<string>();
     const {itsLoading, execute, integrations} = useFetchIntegration();
     //TODO: sacar la logica a la pagina
     const navigate = useNavigate();
@@ -11,7 +19,7 @@ const IntegrationsTable = (): ReactElement => {
     useEffect(() => {
         const call = async () => {
             try {
-                await execute();
+                await execute(processorCode!);
             } catch (e) {
                 console.log(e)
             }
@@ -20,10 +28,10 @@ const IntegrationsTable = (): ReactElement => {
             .then()
             .catch(console.log);
         // eslint-disable-next-line
-    }, [])
+    }, [processorCode])
 
     function handleOnRowClick(integration: any) {
-        navigate(`/manpower-v3/form/${integration.id}`);
+        navigate(`/manpower/${title}/form/${integration.id}`);
     }
 
     return (

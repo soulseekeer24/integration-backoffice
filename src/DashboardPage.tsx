@@ -8,8 +8,33 @@ const Sidebar: React.FC = () => {
         <div className="sidebar py-4 px-2 bg-blue-900 text-white">
             <ul>
                 <li className="mb-2">
-                    <Link to="/manpower-v3/listing" className="text-blue-200 hover:text-white">
+                    <Link to="/manpower/manpower-v1/listing" className="text-blue-200 hover:text-white">
+                        Vertical 1 Manpower
+                    </Link>
+                </li>
+                <li className="mb-2">
+                    <Link to="/manpower/manpower-v2/listing" className="text-blue-200 hover:text-white">
+                        Vertical 2 Manpower
+                    </Link>
+                </li>
+                <li className="mb-2">
+                    <Link to="/manpower/manpower-v3/listing" className="text-blue-200 hover:text-white">
                         Vertical 3 Manpower
+                    </Link>
+                </li>
+                <li className="mb-2">
+                    <Link to="/manpower/manpower-v4/listing" className="text-blue-200 hover:text-white">
+                        Vertical 4 Manpower
+                    </Link>
+                </li>
+                <li className="mb-2">
+                    <Link to="/manpower/manpower-v5/listing" className="text-blue-200 hover:text-white">
+                        Vertical 5 Manpower
+                    </Link>
+                </li>
+                <li className="mb-2">
+                    <Link to="/manpower/manpower-v6/listing" className="text-blue-200 hover:text-white">
+                        Vertical 6 Manpower
                     </Link>
                 </li>
             </ul>

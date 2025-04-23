@@ -5,7 +5,7 @@ import {useFetchIntegrationById} from "../hooks/useFetchIntegrationByIdHook.ts";
 import {useUpdateExecutionParametersIntegration} from "../hooks/useUpdateExecutionParametersIntegrationHook.ts";
 
 const EditIntegrationPage = () => {
-    const {id} = useParams<string>();
+    const {id, title} = useParams<string>();
     const [showModal, setShowModal] = useState<boolean>(false);
     const {execute, integration, itsLoading} = useFetchIntegrationById();
     const navigate = useNavigate();
@@ -39,7 +39,7 @@ const EditIntegrationPage = () => {
 
         <>
             {showModal ?
-                <Modal onConfirm={() => navigate("/manpower-v3/listing")}
+                <Modal onConfirm={() => navigate(`/manpower/${title}/listing`)}
                        buttonText={"Presione para volver!"}
                        body={`Se ha actualizado correctamente la integracion con id ${integration.id}`}
                        title={"Integracion actualizada"}/> : null}
@@ -48,7 +48,7 @@ const EditIntegrationPage = () => {
                 <IntegrationForm
                     integration={integration}
 
-                    onCancel={() => navigate("/manpower-v3/listing")}
+                    onCancel={() => navigate(`/manpower/${title}/listing`)}
                     onSubmit={handleOnSubmit}/>
             }
         </>

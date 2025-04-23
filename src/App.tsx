@@ -4,7 +4,7 @@ import {AuthProvider} from './auth/context/AuthContext.tsx';
 import ProtectedRoute from './auth/guards/ProtectedRoute.tsx';
 import Dashboard from './DashboardPage.tsx';
 import LoginPage from './auth/pages/LoginPage.tsx';
-import Vertical3Page from "./integrations/pages/Vertical3Page.tsx";
+import VerticalPage from "./integrations/pages/VerticalPage.tsx";
 import ListingIntegrationPage from "./integrations/pages/ListingIntegrationPage.tsx";
 import CreateIIntegrationPage from './integrations/pages/CreateIIntegrationPage.tsx';
 import EditIntegrationPage from "./integrations/pages/EditIntegrationPage.tsx";
@@ -24,18 +24,18 @@ function App() {
                                 </ProtectedRoute>
                             }>
                             <Route
-                                path="/manpower-v3"
-                                element={<Vertical3Page/>}
+                                path="/manpower/:title"
+                                element={<VerticalPage />}
                             >
                                 <Route
-                                    path="/manpower-v3/listing"
+                                    path="/manpower/:title/listing"
                                     element={<ListingIntegrationPage/>}/>
                                 <Route
-                                    path="/manpower-v3/form"
+                                    path="/manpower/:title/form"
                                     element={<CreateIIntegrationPage/>}
                                 />
                                 <Route
-                                    path="/manpower-v3/form/:id"
+                                    path="/manpower/:title/form/:id"
                                     element={<EditIntegrationPage/>}
                                 />
                             </Route>
